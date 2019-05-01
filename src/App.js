@@ -8,7 +8,8 @@ class App extends Component {
       { name: 'Max', age: 29 },
       { name: 'Manu', age: 29 },
       { name: 'Stephanie', age: 29 }
-    ]
+    ],
+    showPersons: false
   }
 
   switchHandler = (newName) => {
@@ -32,6 +33,11 @@ class App extends Component {
     })
   }
 
+  tagglePersonsHandler = () => {
+    const doesShow = this.state.showPersons
+    this.setState({ showPersons: !doesShow })
+  }
+
   render() {
     const style = {
       backgroundColor: 'white',
@@ -46,24 +52,29 @@ class App extends Component {
         <h1>Hi, I'm a React app</h1>
         <p>This is really working</p>
         <button
-          onClick={this.switchNameHandler}
+          onClick={this.tagglePersonsHandler}
           style={style}
-        >Switch Names!</button>
-        <Person
-          name={this.state.persons[0].name}
-          age={this.state.persons[0].age} />
-        <Person
-          name={this.state.persons[1].name}
-          age={this.state.persons[1].age}
-          click={this.switchHandler.bind(this, "Maximilian")}
-          changed={this.nameChangedHandler}>
-          My Hobbies: Racing
+        >Toggle persons!</button>
+        {this.state.showPersons === true ?
+          <div>
+            <Person
+              name={this.state.persons[0].name}
+              age={this.state.persons[0].age} />
+            <Person
+              name={this.state.persons[1].name}
+              age={this.state.persons[1].age}
+              click={this.switchHandler.bind(this, "Maximilian")}
+              changed={this.nameChangedHandler}>
+              My Hobbies: Racing
         </Person>
-        <Person
-          // DO NOT USE THIS: passing with anonymous functions is inefficient
-          name={this.state.persons[2].name}
-          age={this.state.persons[2].age}
-          click={() => this.switchHandler("Maxiii!")} />
+            <Person
+              // DO NOT USE THIS: passing with anonymous functions is inefficient
+              name={this.state.persons[2].name}
+              age={this.state.persons[2].age}
+              click={() => this.switchHandler("Maxiii!")} />
+          </div>
+          : null
+        }
       </div>
     )
     // return React.createElement('div', { className: 'App' }, React.createElement('h1', null, 'Does this work now?'))
