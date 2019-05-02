@@ -40,6 +40,15 @@ class App extends Component {
 
     let persons = null
 
+    const style = {
+      backgroundColor: 'green',
+      color: 'white',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px',
+      curson: 'pointer'
+    }
+
     if (this.state.showPersons) {
       persons = (
         <div>
@@ -52,14 +61,8 @@ class App extends Component {
               changed={(event) => this.nameChangedHandler(event, person.id)} />
           })}
         </div>)
-    }
 
-    const style = {
-      backgroundColor: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      curson: 'pointer'
+      style.backgroundColor = 'red'
     }
 
     return (
