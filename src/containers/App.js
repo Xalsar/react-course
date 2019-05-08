@@ -4,13 +4,37 @@ import Persons from '../components/Persons/Persons'
 import Cockpit from '../components/Cockpit/Cockpit'
 
 class App extends Component {
-  state = {
-    persons: [
-      { id: 0, name: 'Max', age: 29 },
-      { id: 1, name: 'Manu', age: 29 },
-      { id: 2, name: 'Stephanie', age: 29 }
-    ],
-    showPersons: false
+  constructor(props) {
+    super(props)
+
+    // Could be initialized ourtside
+    this.state = {
+      persons: [
+        { id: 0, name: 'Max', age: 29 },
+        { id: 1, name: 'Manu', age: 29 },
+        { id: 2, name: 'Stephanie', age: 29 }
+      ],
+      showPersons: false
+    }
+
+    console.log('[App.js] constructor')
+  }
+  // state = {
+  //   persons: [
+  //     { id: 0, name: 'Max', age: 29 },
+  //     { id: 1, name: 'Manu', age: 29 },
+  //     { id: 2, name: 'Stephanie', age: 29 }
+  //   ],
+  //   showPersons: false
+  // }
+
+  static getDerivedStateFromProps(props, state) {
+    console.log('[App.js] getDerivedStateFromProps', props)
+    return state
+  }
+
+  componentDidMount() {
+    console.log('[App.js] componentDidMount')
   }
 
   deletePersonhandler = (personIndex) => {
@@ -38,6 +62,7 @@ class App extends Component {
   }
 
   render() {
+    console.log('[App.js] render')
     let persons = null
 
     if (this.state.showPersons) {
