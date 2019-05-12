@@ -12,8 +12,9 @@ const Cockpit = (props) => {
 
   useEffect(() => {
     console.log('[Cockpit.js] 2nd useEffect')
-    // Http requests
+    const timer = setTimeout(() => { })
     return () => {
+      clearTimeout(timer)
       console.log('[Cockpit.js] cleanup work in 2nd useEffect')
     }
   })
