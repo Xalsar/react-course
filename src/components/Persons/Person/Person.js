@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
-// import styles from './Person.module.css'
+import withCass from '../../../hoc/withClass'
+import styles from './Person.module.css'
 
 const person = (props) => {
     console.log('[Person.js] rendering...')
@@ -13,4 +14,4 @@ const person = (props) => {
     )
 }
 
-export default person
+export default withCass(person, styles.Person)
