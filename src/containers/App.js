@@ -16,7 +16,8 @@ class App extends Component {
         { id: 2, name: 'Stephanie', age: 29 }
       ],
       showPersons: false,
-      showCockpit: true
+      showCockpit: true,
+      changeCounter: 0
     }
 
     console.log('[App.js] constructor')
@@ -64,7 +65,10 @@ class App extends Component {
     const persons = [...this.state.persons]
     persons[personIndex] = person
 
-    this.setState({ persons })
+    this.setState((prevState, props) => ({
+      persons,
+      changeCounter: prevState.changeCounter + 1
+    }))
   }
 
   togglePersonsHandler = () => {
