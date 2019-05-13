@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 // import styles from './Person.module.css'
+
 const person = (props) => {
     console.log('[Person.js] rendering...')
 
