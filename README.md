@@ -1,10 +1,8 @@
-# Burger builder
+# Person Manager app
 
-![Burger app screenshot](https://res.cloudinary.com/dk7vresyz/image/upload/v1598092825/repos/BurgerApp_rjfgnq.png)
+![Person Manager app](https://res.cloudinary.com/dk7vresyz/image/upload/v1598094456/repos/PersonManagerApp_zjqzmw.png)
 
-Burger builder project: Make your own burgers and crate orders. Download the code and run `yarn install && yarn start` to run the app.
-
-Some functionalityes may be linked to Google Cloud, so some minor parts of the app may not work properly.
+Do simple management operations. Download the code and run `yarn install && yarn start` to run the app.
 
 ## Available Scripts
 
